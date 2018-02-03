@@ -1,5 +1,6 @@
 package carSearch.controllers;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,6 +12,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.servlet.ServletContext;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -51,19 +53,17 @@ import carSearch.service.PriceManager;
 @SessionAttributes("carSearch")
 public class carSearchController {
 	
-	private ILocationManager locationManager;
-	private ICarManager carManager;
-	private IPriceManager priceManager;
-	private Validator validator;
 
+	private Validator validator;
+	
 	public carSearchController()
 	{
-	//	ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
-	//	validator = validatorFactory.getValidator();
-		locationManager =  new LocationManager();
-		carManager =  new CarManager();
-		priceManager = new PriceManager();
+	    ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+	    validator = validatorFactory.getValidator();		
 	}
+	
+	@Autowired
+	ServletContext context; 
 	
 	@InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -73,7 +73,10 @@ public class carSearchController {
 	
 	@ModelAttribute("allLocations")
     public List<Location> populateLocations() 
-    {
+    { 
+		// note not best way call file each call i would add it into DI but to save time and debug i just add it here 
+		File xmlFile = new File(context.getRealPath("WEB-INF/classes/xml/AutoEurope.xml"));
+		ILocationManager  locationManager =  new LocationManager(xmlFile);
         List<Location> loc = locationManager.GetAllLocations();
       return loc; 
     }
@@ -87,10 +90,12 @@ public class carSearchController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String submitForm(@ModelAttribute("carSearch") CarSearch carSearch,
-			RedirectAttributes redir,BindingResult result, SessionStatus status) {
-
-		Set<ConstraintViolation<CarSearch>> violations = validator.validate(carSearch);
-		
+			RedirectAttributes redir,BindingResult result, SessionStatus status) {		
+		   Set<ConstraintViolation<CarSearch>> violations = validator.validate(carSearch);
+		// note not best way call file each call i would add it into DI but to save time and debug i just add it here 
+			File xmlFile = new File(context.getRealPath("WEB-INF/classes/xml/AutoEurope.xml"));
+			ICarManager	carManager = new CarManager(xmlFile);
+            IPriceManager	priceManager = new PriceManager(xmlFile);
 		for (ConstraintViolation<CarSearch> violation : violations) 
 		{
             String propertyPath = violation.getPropertyPath().toString();

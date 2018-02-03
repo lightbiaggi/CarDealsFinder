@@ -1,5 +1,6 @@
 package carSearch.service;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +12,8 @@ import carSearch.model.Price;
 public class CarManager implements ICarManager {
 private CarDAO dao;
 	
-	public CarManager() {
-		dao = new CarDAO();
+	public CarManager(File xmlFile) {
+		dao = new CarDAO(xmlFile);
 	}
 
 	public List<Car> GetCarsInventory() {

@@ -1,5 +1,6 @@
 package carSearch.dao;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,6 +8,10 @@ import java.util.List;
 import carSearch.model.Price;
 
 public class PriceDAO extends BaseDAO implements IPriceDAO {
+
+	public PriceDAO(File xmlFile) {
+		super(xmlFile);
+	}
 
 	public List<Price> GetPriceForLocationAndDate(Integer locationId, Date selectedDate) {
 	List<Price> locationPrices = new ArrayList<Price>();

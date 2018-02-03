@@ -53,21 +53,17 @@ public class LoadDataFromXml {
 	 }
 	 
 	 
-	 public LoadDataFromXml()
+	 public LoadDataFromXml(File xmlFile)
 	 {
-		 SAXBuilder builder = new SAXBuilder();
-		    File xmlFile = new File("C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\wtpwebapps\\CarDealsFinder\\WEB-INF\\classes\\xml\\AutoEurope.xml");//new File(getClass().getResource("/xml/AutoEurope.xml").getFile());	
-			/*File xmlFile =  new File(LoadDataFromXml.class.getClassLoader().getResource("xml/AutoEurope.xml").getFile()); //new FileSystemResource("classpath:/xml/AutoEurope.xml").getFile();
-			ServletContext ctx = Application.Context();
-			InputStream configStream = ctx.getResourceAsStream("/WEB-INF/config.properties");*/
+		 	SAXBuilder builder = new SAXBuilder();
 			try {
 
-			Document document = (Document) builder.build(xmlFile);
-			Element rootNode = document.getRootElement();
-			setLocationsRoot(rootNode.getChild("Locations"));
-			setPricesRoot(rootNode.getChild("Prices"));
-			setCarsRoot(rootNode.getChild("Cars"));
-			
+				Document document = (Document) builder.build(xmlFile);
+				Element rootNode = document.getRootElement();
+				setLocationsRoot(rootNode.getChild("Locations"));
+				setPricesRoot(rootNode.getChild("Prices"));
+				setCarsRoot(rootNode.getChild("Cars"));
+				
 		  } catch (IOException io) {
 			System.out.println(io.getMessage());
 		  } catch (JDOMException jdomex) {
@@ -75,7 +71,8 @@ public class LoadDataFromXml {
 		  }
 	 }
 	
-	 public List<Location> parseLocationXML() 
+
+	public List<Location> parseLocationXML() 
 	   { 
 			List<Location> locations = new ArrayList<Location>();
 			List locationsXML = getLocationsRoot().getChildren("Location");		     
@@ -115,6 +112,7 @@ public class LoadDataFromXml {
 				try {
 					date = formatter.parse(node.getChildText("date"));
 				} catch (ParseException e) {
+					System.out.println(e.getMessage());
 				}
 			       Price  price = new Price(Integer.parseInt(node.getChildText("carId")),Integer.parseInt(node.getChildText("locationId")),date,Integer.parseInt(node.getChildText("quote")));
 			      

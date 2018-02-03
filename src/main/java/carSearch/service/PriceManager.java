@@ -1,5 +1,6 @@
 package carSearch.service;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 
@@ -9,8 +10,8 @@ import carSearch.model.Price;
 public class PriceManager implements IPriceManager {
 
 	private PriceDAO dao;
-	public PriceManager() {
-		dao =  new PriceDAO();
+	public PriceManager(File xmlFile) {
+		dao =  new PriceDAO(xmlFile);
 	}
 
 	public List<Price> GetPriceForLocationAndDate(Integer locationId, Date selectedDate) {
