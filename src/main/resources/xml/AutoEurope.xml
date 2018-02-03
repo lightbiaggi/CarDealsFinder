@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoEurope>
+<Locations>
+<Location>
+<id>1</id>
+<name>Fiumicino</name>
+</Location>
+<Location>
+<id>2</id>
+<name>Heathrow</name>
+</Location>
+<Location>
+<id>3</id>
+<name>Arlanda</name>
+</Location>
+<Location>
+<id>4</id>
+<name> Franz Josef Strauss</name>
+</Location>
+</Locations>
+<Cars>
+<Car>
+<id>1</id>
+<model>2018 Honda Prelude</model>
+</Car>
+<Car>
+<id>16</id>
+<model>2018 Honda Prelude</model>
+</Car>
+<Car>
+<id>2</id>
+<model>2018 Toyota Camry</model>
+</Car>
+<Car>
+<id>3</id>
+<model>2017 Mercedes C300</model>
+</Car>
+<Car>
+<id>4</id>
+<model>2017 Mercedes C300</model>
+</Car>
+<Car>
+<id>14</id>
+<model>2017 Mercedes C300</model>
+<locationId>3</locationId>
+</Car>
+<Car>
+<id>5</id>
+<model>2017 Lamborghini Aventador</model>
+</Car>
+<Car>
+<id>6</id>
+<model>2017 Lamborghini Aventador</model>
+</Car>
+<Car>
+<id>7</id>
+<model>2015 Volkswagen Jetta</model>
+</Car>
+<Car>
+<id>15</id>
+<model>2015 Volkswagen Jetta</model>
+</Car>
+<Car>
+<id>8</id>
+<model>2015 Volkswagen Golf GTI</model>
+</Car>
+<Car>
+<id>9</id>
+<model>2018 Honda Accord</model>
+</Car>
+<Car>
+<id>10</id>
+<model>2017 Bugatti Chiron</model>
+</Car>
+<Car>
+<id>11</id>
+<model>2017 BMW M5</model>
+</Car>
+<Car>
+<id>12</id>
+<model>2017 Honda Civic Type R</model>
+</Car>
+<Car>
+<id>13</id>
+<model>2017 Honda Civic Type R</model>
+<locationId>4</locationId>
+</Car>
+</Cars>
+<Prices>
+<Price>
+<carId>1</carId>
+<date>06/06/2018</date>
+<quote>89</quote>
+<locationId>1</locationId>
+</Price>
+<Price>
+<carId>2</carId>
+<date>11/06/2018</date>
+<quote>80</quote>
+<locationId>2</locationId>
+</Price>
+<Price>
+<carId>3</carId>
+<date>05/11/2018</date>
+<quote>100</quote>
+<locationId>2</locationId>
+</Price>
+<Price>
+<carId>4</carId>
+<date>05/11/2018</date>
+<quote>110</quote>
+<locationId>4</locationId>
+</Price>
+<Price>
+<carId>5</carId>
+<date>02/11/2018</date>
+<quote>410</quote>
+<locationId>1</locationId>
+</Price>
+<Price>
+<carId>6</carId>
+<date>04/11/2018</date>
+<quote>430</quote>
+<locationId>3</locationId>
+</Price>
+<Price>
+<carId>7</carId>
+<date>11/06/2018</date>
+<quote>70</quote>
+<locationId>2</locationId>
+</Price>
+<Price>
+<carId>8</carId>
+<date>12/21/2018</date>
+<quote>75</quote>
+<locationId>1</locationId>
+</Price>
+<Price>
+<carId>9</carId>
+<date>07/25/2018</date>
+<quote>95</quote>
+<locationId>1</locationId>
+</Price>
+<Price>
+<carId>10</carId>
+<date>07/25/2018</date>
+<quote>950</quote>
+<locationId>3</locationId>
+</Price>
+<Price>
+<carId>11</carId>
+<date>09/25/2018</date>
+<quote>150</quote>
+<locationId>2</locationId>
+</Price>
+<Price>
+<carId>12</carId>
+<date>03/25/2018</date>
+<quote>100</quote>
+<locationId>2</locationId>
+</Price>
+<Price>
+<carId>13</carId>
+<date>05/25/2018</date>
+<quote>110</quote>
+<locationId>2</locationId>
+</Price>
+<Price>
+<carId>14</carId>
+<date>11/25/2018</date>
+<quote>102</quote>
+<locationId>4</locationId>
+</Price>
+<Price>
+<carId>15</carId>
+<date>11/22/2018</date>
+<quote>123</quote>
+<locationId>4</locationId>
+</Price>
+<Price>
+<carId>16</carId>
+<date>09/22/2018</date>
+<quote>156</quote>
+<locationId>4</locationId>
+</Price>
+</Prices>
+</AutoEurope>
